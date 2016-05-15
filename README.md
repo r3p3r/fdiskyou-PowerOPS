@@ -65,7 +65,7 @@ PowerOPS uses the System.Management.Automation namespace, so make sure you have 
 
 Just run the executables.
 
-### Kudos:
+### Credits:
 
 PowerOPS was inspired by [Cn33liz/p0wnedShell](https://github.com/Cn33liz/p0wnedShell), and basically consists of work from [Nikhil Mittal] (http://www.labofapenetrationtester.com/) of Nishang, [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. 
 
