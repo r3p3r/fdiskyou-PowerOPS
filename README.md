@@ -27,7 +27,7 @@ PowerOPS was inspired by [Cn33liz/p0wnedShell](https://github.com/Cn33liz/p0wned
   - PowerUp
   - PowerView
 * [Nishang](https://github.com/samratashok/nishang)
-  - Get-Infromation
+  - Get-Information
   - Port-Scan
   - Get-PassHashes
 * [Auto-GPPPassword](https://github.com/roo7break/PowerShell-Scripts/blob/master/auto-gpppassword/auto-gpppassword.ps1)
@@ -71,4 +71,5 @@ PowerOPS was inspired by [Cn33liz/p0wnedShell](https://github.com/Cn33liz/p0wned
 
 ### TODO:
 
-Improve "How to use it" section. Add more attacks and test!
+* Test. This hasn't been thoroughly tested, please report any issues.
+* Improve "How to use it" section. Add more attacks and test!
