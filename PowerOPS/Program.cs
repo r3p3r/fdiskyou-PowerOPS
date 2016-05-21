@@ -210,7 +210,7 @@ namespace PowerOPS
                         Console.WriteLine("\nVersion 0.1b - rui@deniable.org\n\n[*] OPTIONS\n");
                         Console.ForegroundColor = ConsoleColor.Green; Console.Write("  help"); Console.ResetColor(); Console.WriteLine("                  Display Help");
                         Console.ForegroundColor = ConsoleColor.Green; Console.Write("  show modules"); Console.ResetColor(); Console.WriteLine("          List All Available Modules And Functions");
-                        Console.ForegroundColor = ConsoleColor.Green; Console.Write("  powershell"); Console.ResetColor(); Console.WriteLine("            Execute A PowerShell Command");
+                        Console.ForegroundColor = ConsoleColor.Green; Console.Write("  powershell"); Console.ResetColor(); Console.WriteLine("            Enter PowerShell shell");
                         Console.ForegroundColor = ConsoleColor.Green; Console.Write("  exit"); Console.ResetColor(); Console.WriteLine("                  Exit this program");
                         break;
                     case "show modules":
