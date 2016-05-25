@@ -7,7 +7,7 @@ PowerOPS is an application written in C# that does not rely on powershell.exe bu
 
 It tries to follow the KISS principle, being as simple as possible. The main goal is to make it easy to use PowerShell offensively and help to evade antivirus and other mitigations solutions. It does this by:
 
-1. Doesn't rely on powershell.exe, it calls PowerShell directly through the .NET framework, which might help bypassing security controls like GPO, SRP, App Locker.
+1. Doesn't rely on powershell.exe, it calls PowerShell directly through the .NET framework, which might help bypassing security controls like GPO, SRP and App Locker.
 2. The payloads are executed from memory and never touch disk, evading most antivirus engines.
 
 PowerOPS was inspired by [Cn33liz/p0wnedShell](https://github.com/Cn33liz/p0wnedShell). However I was only interested in PowerShell modules and I was looking for more flexibility. Since PowerOPS offers basically an interactive PowerShell command prompt you are free to use the PowerShell tools included the way you want, and additionally execute any valid PowerShell command.
@@ -66,7 +66,7 @@ PowerOPS uses the System.Management.Automation namespace, so make sure you have 
 
 ### How to use it:
 
-Just run the executables.
+Just run the executables. All scripts are loaded as modules. **Get-Command -module** and **Get-Help** are your friends and will help to find how to use the modules.
 
 ### Credits:
 
