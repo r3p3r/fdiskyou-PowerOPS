@@ -16,24 +16,27 @@ PowerOPS was inspired by [Cn33liz/p0wnedShell](https://github.com/Cn33liz/p0wned
 
 #### The following PowerShell tools/functions are included:
 
-* [Powersploit](https://github.com/PowerShellMafia/PowerSploit)
+* [PowerShellMafia/Powersploit](https://github.com/PowerShellMafia/PowerSploit)
+  - Get-Keystrokes
+  - Invoke-DllInjection
   - Invoke-Mimikatz
+  - Invoke-NinjaCopy
   - Invoke-Shellcode
   - Invoke-ReflectivePEInjection
   - Invoke-TokenManipulation
-  - Invoke-NinjaCopy
   - Invoke-WMICommand
-* [PowerTools](https://github.com/PowerShellEmpire/PowerTools)
   - PowerUp
   - PowerView
 * [Nishang](https://github.com/samratashok/nishang)
   - Get-Information
-  - Port-Scan
   - Get-PassHashes
+  - Port-Scan
 * [Auto-GPPPassword](https://github.com/roo7break/PowerShell-Scripts/blob/master/auto-gpppassword/auto-gpppassword.ps1)
 * [PowerCat](https://github.com/besimorhino/powercat)
+* [Get-ProductKey](https://gallery.technet.microsoft.com/scriptcenter/Get-product-keys-of-local-83b4ce97)
 * [Empire](https://github.com/PowerShellEmpire/)
   - Invoke-Psexec
+  - Invoke-SSHCommand
 
 Additionally you can run any valid PowerShell command.
 
@@ -69,7 +72,3 @@ Just run the executables.
 
 PowerOPS was inspired by [Cn33liz/p0wnedShell](https://github.com/Cn33liz/p0wnedShell), and basically consists of work from [Nikhil Mittal] (http://www.labofapenetrationtester.com/) of Nishang, [mattifiestation](https://twitter.com/mattifestation) of PowerSploit and [sixdub](https://twitter.com/sixdub), [engima0x3](https://twitter.com/enigma0x3) and [harmj0y](https://twitter.com/HarmJ0y) of Empire. 
 
-### TODO:
-
-* Test. This hasn't been thoroughly tested, please report any issues.
-* Improve "How to use it" section. Add more attacks and test!
