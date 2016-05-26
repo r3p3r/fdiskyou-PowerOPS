@@ -66,7 +66,15 @@ PowerOPS uses the System.Management.Automation namespace, so make sure you have 
 
 ### How to use it:
 
-Just run the executables. All scripts are loaded as modules. **Get-Command -module** and **Get-Help** are your friends and will help to find how to use the modules.
+Just run the executables. PowerUp and PowerView are loaded as modules, so **Get-Command -module** will show you all available functions. **Get-Help** is your friend and will help to find how to use the modules. Some examples bellow.
+
+```
+Get-command -module PowerView
+Get-Help Invoke-Mimikatz -examples
+Get-Help Invoke-DllInjection -full
+```
+
+Have Fun!
 
 ### Credits:
 
