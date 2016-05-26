@@ -157,13 +157,13 @@ namespace PowerOPS
                     case "exit":
                         return;
                     default:
-                        if (command.IndexOf("Invoke-Mimikatz", StringComparison.OrdinalIgnoreCase) >= 0)
+                        if (command.IndexOf("Invoke-Mimikatz", StringComparison.OrdinalIgnoreCase) == 0)
                             if (!IsUserAdministrator())
                                 break;
-                        if (command.IndexOf("Get-PassHashes", StringComparison.OrdinalIgnoreCase) >= 0)
+                        if (command.IndexOf("Get-PassHashes", StringComparison.OrdinalIgnoreCase) == 0)
                             if (!IsUserAdministrator())
                                 break;
-                        if (command.IndexOf("Invoke-Shellcode", StringComparison.OrdinalIgnoreCase) >= 0)
+                        if (command.IndexOf("Invoke-Shellcode", StringComparison.OrdinalIgnoreCase) == 0)
                             if (!isArch_x86())
                                 break;
 
