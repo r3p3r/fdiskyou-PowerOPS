@@ -74,7 +74,7 @@ Get-Help Invoke-Mimikatz -examples
 Get-Help Invoke-DllInjection -full
 ```
 
-Yes, all your PowerShell kung fu applies, since PowerOPS is basically a PowerShell shell with some modules/functions loaded on the same executable. Have Fun!
+All your PowerShell fu applies. PowerOPS is basically a PowerShell shell with some modules/functions pre-loaded. Have Fun!
 
 ### Credits:
 
