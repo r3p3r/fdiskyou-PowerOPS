@@ -88,7 +88,7 @@ PS > show
 
 [+] Others
 
- Auto-GPPPassword   Get-ProductKey             PowerCat
+ Auto-GPPPassword   PowerCat
 
 PS >
 ```
