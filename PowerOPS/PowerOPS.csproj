@@ -87,6 +87,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="amsibypass.cs" />
     <Compile Include="PowerOPS.cs" />
     <Compile Include="Program.cs">
       <SubType>Component</SubType>

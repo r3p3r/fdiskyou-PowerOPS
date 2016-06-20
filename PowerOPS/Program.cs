@@ -34,7 +34,7 @@ namespace PowerOPS
         {
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine(@"PowerOPS v0.5 - PowerShell for Offensive Operations"); Console.ResetColor(); Console.WriteLine();
+            Console.WriteLine(@"PowerOPS v0.9 - PowerShell for Offensive Operations"); Console.ResetColor(); Console.WriteLine();
         }
 
         public static void DisplayModules()
@@ -57,7 +57,7 @@ namespace PowerOPS
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\n[+] Others\n"); Console.ResetColor();
-            Console.Write(" Auto-GPPPassword   Get-ProductKey             PowerCat\n");
+            Console.Write(" Auto-GPPPassword   PowerCat\n");
 
             Console.ResetColor();
             Console.WriteLine("");
@@ -137,6 +137,10 @@ namespace PowerOPS
             Console.SetWindowSize(Math.Min(122, Console.LargestWindowWidth), Math.Min(40, Console.LargestWindowHeight));
             Console.SetBufferSize(Console.BufferWidth, Console.BufferHeight);
 
+            // Amsi bypass technique from: http://cn33liz.blogspot.co.uk/2016/05/bypassing-amsi-using-powershell-5-dll.html
+            string Arch = System.Environment.GetEnvironmentVariable("PROCESSOR_ARCHITECTURE");
+            amsibypass.Amsi(Arch);
+
             string command = null;
             DisplayBanner();
             Console.WriteLine("Type 'show' to list available modules\n");
@@ -155,6 +159,13 @@ namespace PowerOPS
                         DisplayModules();
                         break;
                     case "exit":
+                        string path = Directory.GetCurrentDirectory();
+                        
+                        if (File.Exists(path + "\\Amsi.dll"))
+                            File.Delete(path + "\\Amsi.dll");
+
+                        runspace.Close();
+                        Environment.Exit(0);
                         return;
                     default:
                         if (command.IndexOf("Invoke-Mimikatz", StringComparison.OrdinalIgnoreCase) == 0)
@@ -185,7 +196,6 @@ namespace PowerOPS
                             pipeline.Commands.AddScript(PowerOPS.Nishang_PortScan());
                             pipeline.Commands.AddScript(PowerOPS.AutoGPPPassword());
                             pipeline.Commands.AddScript(PowerOPS.PowerCat());
-                            pipeline.Commands.AddScript(PowerOPS.GetProductKey());
                             pipeline.Commands.AddScript(PowerOPS.Empire_InvokePSExec());
                             pipeline.Commands.AddScript(PowerOPS.Empire_InvokeSshCommand());
                             pipeline.Commands.AddScript(command);
@@ -208,10 +218,7 @@ namespace PowerOPS
                 }
 
             } while (command != "exit");
-
-            runspace.Close();
-            Environment.Exit(0);
+            
         }
-
     }
 }
