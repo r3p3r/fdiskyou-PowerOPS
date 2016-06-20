@@ -33,7 +33,6 @@ PowerOPS was inspired by [Cn33liz/p0wnedShell](https://github.com/Cn33liz/p0wned
   - Port-Scan
 * [Auto-GPPPassword](https://github.com/roo7break/PowerShell-Scripts/blob/master/auto-gpppassword/auto-gpppassword.ps1)
 * [PowerCat](https://github.com/besimorhino/powercat)
-* [Get-ProductKey](https://gallery.technet.microsoft.com/scriptcenter/Get-product-keys-of-local-83b4ce97)
 * [Empire](https://github.com/PowerShellEmpire/)
   - Invoke-Psexec
   - Invoke-SSHCommand
