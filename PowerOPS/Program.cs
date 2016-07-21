@@ -34,7 +34,7 @@ namespace PowerOPS
         {
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine(@"PowerOPS v0.9 - PowerShell for Offensive Operations"); Console.ResetColor(); Console.WriteLine();
+            Console.WriteLine(@"PowerOPS v1.0b - PowerShell for Offensive Operations"); Console.ResetColor(); Console.WriteLine();
         }
 
         public static void DisplayModules()
@@ -57,7 +57,8 @@ namespace PowerOPS
 
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("\n[+] Others\n"); Console.ResetColor();
-            Console.Write(" Auto-GPPPassword   PowerCat\n");
+            Console.Write(" Auto-GPPPassword   Invoke-SMBAutoBrute        Invoke-mimikittenz  PowerCat\n");
+            Console.Write(" PowerUpSQL\n");
 
             Console.ResetColor();
             Console.WriteLine("");
@@ -198,6 +199,9 @@ namespace PowerOPS
                             pipeline.Commands.AddScript(PowerOPS.PowerCat());
                             pipeline.Commands.AddScript(PowerOPS.Empire_InvokePSExec());
                             pipeline.Commands.AddScript(PowerOPS.Empire_InvokeSshCommand());
+                            pipeline.Commands.AddScript(PowerOPS.InvokeMimikittenz());
+                            pipeline.Commands.AddScript(PowerOPS.PowerUpSQL());
+                            pipeline.Commands.AddScript(PowerOPS.InvokeSMBAutoBrute());
                             pipeline.Commands.AddScript(command);
                             pipeline.Commands.Add("Out-String");
                             Collection<PSObject> results = pipeline.Invoke();
