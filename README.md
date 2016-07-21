@@ -36,6 +36,9 @@ PowerOPS was inspired by [Cn33liz/p0wnedShell](https://github.com/Cn33liz/p0wned
 * [Empire](https://github.com/PowerShellEmpire/)
   - Invoke-Psexec
   - Invoke-SSHCommand
+* [mimikittenz](https://github.com/putterpanda/mimikittenz)
+* [SMBAutoBrute](https://github.com/Shellntel/scripts/blob/master/Invoke-SMBAutoBrute.ps1)
+* [PowerUpSQL](https://github.com/NetSPI/PowerUpSQL)
 
 Additionally you can run any valid PowerShell command.
 
@@ -88,7 +91,8 @@ PS > show
 
 [+] Others
 
- Auto-GPPPassword   PowerCat
+ Auto-GPPPassword   Invoke-SMBAutoBrute        Invoke-mimikittenz  PowerCat
+ PowerUpSQL
 
 PS >
 ```
