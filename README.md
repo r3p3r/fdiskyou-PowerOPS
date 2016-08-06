@@ -66,6 +66,13 @@ csc.exe /unsafe /reference:"C:\path\to\System.Management.Automation.dll" /refere
 
 PowerOPS uses the System.Management.Automation namespace, so make sure you have the System.Management.Automation.dll within your source path when compiling outside of Visual Studio.
 
+### How to customize it:
+
+Due to size restrictions, or other reasons, you might want to customize your own version of PowerOPS. If you need help just have a look at the gists bellow, as you won't need anything else.
+- [Compress a file using gzip and base64 encode it](https://gist.github.com/fdiskyou/572ea5b10fc7fdf75c35083035d88a06)
+- [Convert a file to a base64 encoded byte array](https://gist.github.com/fdiskyou/378e8ef91ecfc652353e55bf62f09570)
+- [Unmanaged DLL used for Amsi bypass](https://gist.github.com/fdiskyou/4eae2f89443f2c13d66c27b9a22c7d7e)
+
 ### How to use it:
 
 Just run the binary and type 'show' to list available modules.
