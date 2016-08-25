@@ -28,13 +28,13 @@ namespace PowerOPS
         }
     }
 
-    class Program
+    public class Program
     {
         public static void DisplayBanner(string[] toPrint = null)
         {
             Console.Clear();
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine(@"PowerOPS v1.0b - PowerShell for Offensive Operations"); Console.ResetColor(); Console.WriteLine();
+            Console.WriteLine(@"PowerOPS v1.0 - PowerShell for Offensive Operations"); Console.ResetColor(); Console.WriteLine();
         }
 
         public static void DisplayModules()
